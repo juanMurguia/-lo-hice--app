@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('jqm/fonts/icomoon.eot?n5v9kr');
+    src:  url('jqm/fonts/icomoon.eot?n5v9kr#iefix') format('embedded-opentype'),
+      url('jqm/fonts/icomoon.ttf?n5v9kr') format('truetype'),
+      url('jqm/fonts/icomoon.woff?n5v9kr') format('woff'),
+      url('jqm/fonts/icomoon.svg?n5v9kr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    
+    font-family: 'icomoon' !important;
+    /*speak: never;*/
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-check-circle:before {
+    content: "\e900";
+  }
+  .icon-plus:before {
+    content: "\e901";
+  }
+  .icon-trash:before {
+    content: "\e902";
+  }
+
+/********ICONOS*/
+
+@font-face {
+    font-family: raleway;
+    src: url(/font/Raleway-ExtraLight.ttf);
+    src: url(/font/Raleway-Light.ttf);
+    src: url(/font/Raleway-Medium.ttf);
+}
+
+*{
+    border: 0px!important;
+    text-shadow: none!important;
+    font-family: 'raleway'!important;
+    overflow: unset!important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#home{
+    background-color: #e6edf1!important;
+    overflow: unset!important;
+}
+
+#container{
+    overflow: unset!important;
+}
+
+
+div [data-role="header"]{
+    background-color: #7808fe!important;
+    color: white!important;
+}
+
+#no_tareas{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.notas{
+    padding: 0;
+}
+
+.nota{
+    max-height: 10rem;
+    background-color: white;
+    padding: 2% 4% 2% 4%;
+    margin: 3% 0%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: -2px 3px 6px 3px rgba(0,0,0,0.13);
+    -webkit-box-shadow: -2px 3px 6px 3px rgba(0,0,0,0.13);
+    -moz-box-shadow: -2px 3px 6px 3px rgba(0,0,0,0.13);
+}
+
+.nota h3{
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    color: #292525;
+}
+
+.nota p{
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 20;
+    color: #585858;
+}
+
+.nota #hora{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #585858;
+}
+
+.nota button{
+    background-color: transparent!important;
+    width: auto;
+    box-shadow: none;
+    margin: 0px 0px 0px 0px;
+    position: relative;
+}
+
+.done span{
+    font-size: 1.8rem;
+    color: #6916ce;
+    background-color: none!important;
+    margin-bottom: 0;
+}
+
+.delete span{
+    font-size: 1.5rem;
+    color: #6916ce;
+    margin-bottom: 0;
+  
+}
+
+.boton{
+    bottom: 20px;
+    background-color: #7808fe;
+    color: white;
+    border-radius: 50px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    z-index: 999;
+    margin: 0;
+    position: fixed!important;   
+    padding: 0% 4%;
+    transition: all 0.2s ease-out;
+    transform-origin:center center;
+    overflow: hidden;
+    left: 31%;
+}
+
+
+.boton.scroll{
+    bottom: 20px;
+    background-color: #7808fe;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    z-index: 999;
+    padding: 0;
+    position: fixed!important; 
+    font-size: 1rem;
+    transition: all 0.2s ease-out;
+    transform-origin:center center;
+    overflow: hidden;
+    left: 43%;
+}
+.añadir{
+    color: white;
+    font-weight: lighter;
+    overflow: hidden;
+}
+.scroll .añadir{
+    color: white;
+    font-size: 4rem;
+    line-height: 0;
+    text-align: center;
+    font-weight: lighter;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/************ añadir ***************/
+
+
+
+#formulario :nth-child(2){
+    background-color: #8a42e2;
+    color: white;
+    font-weight: lighter;
+}
+
+#formulario .ui-mini.ui-btn-icon-notext, .ui-mini .ui-btn-icon-notext, .ui-header .ui-btn-icon-notext, .ui-footer .ui-btn-icon-notext{
+    background-color: transparent!important;
+    border: none;
+    box-shadow: none;
+}
+

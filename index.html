@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Lo hice?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <script src="jqm/jquery-1.12.3.min.js"></script>
+    <script src="jqm/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <!----------Developed by: Juan Cruz Murguia
+                Portfolio: https://www.behance.net/juanmurguia
+    ----------->
+
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>¿Lo hice?</h1>
+        </div>
+
+        <div role="main" id="container" class="ui-content">
+            
+            
+            <div class="notas">
+                
+            </div>
+           
+
+            <div class="boton">
+                <a style="text-decoration:none;"href="#añadir" data-transition="slideup"> <span class="añadir"> Añadir tarea</span> </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div data-role="page" id="añadir" >
+        <div data-role="header">
+            <h1>¿Lo hice?</h1>
+            <a href="#" data-rel="back" data-icon="carat-l" data-iconpos="notext">volver</a>   
+        </div>
+
+        <div role="main" class="ui-content">
+            <form id="formulario">
+                <input type="text" id="entrada" placeholder="Por ej: Cerré con llave?" required>
+                <input type="submit" value="Agregar">
+            </form> 
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+
+</body>
+
+</html>
