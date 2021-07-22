@@ -7,19 +7,47 @@
     <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
     <script src="jqm/jquery-1.12.3.min.js"></script>
     <script src="jqm/jquery.mobile-1.4.5.js"></script>
-    <link rel="stylesheet" href="/styles.css">
-    <!----------Developed by: Juan Cruz Murguia
-                Portfolio: https://www.behance.net/juanmurguia
-    ----------->
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
+
+    <div data-role="page" id="login">
+        <div role="main" class="ui-content">
+            <p>¡Bienvenido/a! <br> decinos tu nombre :)</p>
+            <form id="form_login">
+
+                <input type="text" id="entrada_login" placeholder="Por ej: Omar" required>
+                <input type="submit" value=">">
+            </form> 
+
+        </div>
+    </div>
+
+
+
     <div data-role="page" id="home">
         <div data-role="header">
+            <a data-rel="popup" data-role="button" 
+              class="ui-btn-left" id="borrar_todo"> <span class="icon-trash"></span>
+            </a>
             <h1>¿Lo hice?</h1>
+            <a href="#emergente" data-rel="popup" data-role="button" data-position-to="window" data-transition="pop"
+                 class="ui-btn-right"> <span class="icon-info-solid"></span>
+            </a>
+            
         </div>
 
         <div role="main" id="container" class="ui-content">
+
+            <div data-role="popup" id="emergente" data-overlay-theme="b" data-history="false" data-corner="true"
+                class="ui-content">
+                <a href="#" data-rel="back" data-role="button"
+                    class="ui-btn-right"> <span class="icon-times-solid"></span></a>
+                
+                <img src="img/juanCruzMurguia.jpg" alt="juan-cruz-murguia">
+                <p>Diseño y desarollo por Juan Cruz Murguia</p>
+            </div>
             
             
             <div class="notas">
@@ -28,7 +56,7 @@
            
 
             <div class="boton">
-                <a style="text-decoration:none;"href="#añadir" data-transition="slideup"> <span class="añadir"> Añadir tarea</span> </a>
+                <a style="text-decoration:none;" href="#añadir" data-transition="slideup"> <span class="añadir"> Añadir tarea</span> </a>
             </div>
             
         </div>
@@ -37,7 +65,8 @@
     <div data-role="page" id="añadir" >
         <div data-role="header">
             <h1>¿Lo hice?</h1>
-            <a href="#" data-rel="back" data-icon="carat-l" data-iconpos="notext">volver</a>   
+            <a href="#" data-rel="back" data-icon="carat-l" data-iconpos="notext"
+            style="background-color: none;">volver</a>   
         </div>
 
         <div role="main" class="ui-content">
@@ -48,7 +77,8 @@
         </div>
     </div>
 
-    <script src="/app.js"></script>
+
+    <script src="app.js">  </script>
 
 </body>
 

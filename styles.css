@@ -1,38 +1,43 @@
 @font-face {
     font-family: 'icomoon';
-    src:  url('jqm/fonts/icomoon.eot?n5v9kr');
-    src:  url('jqm/fonts/icomoon.eot?n5v9kr#iefix') format('embedded-opentype'),
-      url('jqm/fonts/icomoon.ttf?n5v9kr') format('truetype'),
-      url('jqm/fonts/icomoon.woff?n5v9kr') format('woff'),
-      url('jqm/fonts/icomoon.svg?n5v9kr#icomoon') format('svg');
+    src:  url('./jqm/fonts/icomoon.eot?n80d9v');
+    src:  url('./jqm/fonts/icomoon.eot?n80d9v#iefix') format('embedded-opentype'),
+      url('./jqm/fonts/icomoon.ttf?n80d9v') format('truetype'),
+      url('./jqm/fonts/icomoon.woff?n80d9v') format('woff'),
+      url('./jqm/fonts/icomoon.svg?n80d9v#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
   }
   
   [class^="icon-"], [class*=" icon-"] {
-    
+    /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    /*speak: never;*/
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
   
-    
+    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
-  .icon-check-circle:before {
+  .icon-check-solid:before {
+    content: "\e901";
+  }
+  .icon-info-solid:before {
+    content: "\e904";
+  }
+  .icon-times-solid:before {
     content: "\e900";
   }
   .icon-plus:before {
-    content: "\e901";
+    content: "\e902";
   }
   .icon-trash:before {
-    content: "\e902";
+    content: "\e903";
   }
 
 /********ICONOS*/
@@ -48,7 +53,6 @@
     border: 0px!important;
     text-shadow: none!important;
     font-family: 'raleway'!important;
-    overflow: unset!important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -61,12 +65,20 @@
 
 #container{
     overflow: unset!important;
+    display: flex;
+    flex-direction: column;
 }
 
 
 div [data-role="header"]{
     background-color: #7808fe!important;
     color: white!important;
+}
+
+div [data-role="header"] a{
+    background-color: transparent!important;
+    color: white!important;
+    box-shadow: none;
 }
 
 #no_tareas{
@@ -123,7 +135,7 @@ div [data-role="header"]{
 }
 
 .done span{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #6916ce;
     background-color: none!important;
     margin-bottom: 0;
@@ -151,9 +163,9 @@ div [data-role="header"]{
     position: fixed!important;   
     padding: 0% 4%;
     transition: all 0.2s ease-out;
-    transform-origin:center center;
-    overflow: hidden;
-    left: 31%;
+    align-self: center;
+
+   
 }
 
 
@@ -182,8 +194,8 @@ div [data-role="header"]{
 }
 .scroll .añadir{
     color: white;
-    font-size: 4rem;
-    line-height: 0;
+    font-size: 3rem;
+    line-height: 1;
     text-align: center;
     font-weight: lighter;
     padding: 0;
@@ -191,6 +203,11 @@ div [data-role="header"]{
     overflow: hidden;
 }
 
+#container p:nth-child(1){
+    font-size: 1rem;
+    margin: 0.5rem 0rem;
+    text-align: center;
+}
 
 /************ añadir ***************/
 
@@ -202,9 +219,68 @@ div [data-role="header"]{
     font-weight: lighter;
 }
 
-#formulario .ui-mini.ui-btn-icon-notext, .ui-mini .ui-btn-icon-notext, .ui-header .ui-btn-icon-notext, .ui-footer .ui-btn-icon-notext{
+#formulario .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after{
     background-color: transparent!important;
     border: none;
     box-shadow: none;
 }
 
+
+/************ login **************/
+
+#login{
+    background-color: #6916ce;
+    color: white;
+    display: flex;
+}
+
+#login .ui-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+}
+
+#login p{
+    margin-bottom: 10%;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#entrada_login{
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+
+/************** POP UP EMERGENTE ///////////////**/
+
+#emergente{
+    margin-top: 3rem;
+    width: 85vw;
+}
+
+#emergente .ui-popup > .ui-btn-left, .ui-popup > .ui-btn-right{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: transparent;
+    border: none!important;
+    color: black!important;
+    box-shadow: none;
+}
+
+#emergente .icon-times-solid{
+    color: #6916ce;
+    font-size: 2rem;
+}
+
+#home{
+    z-index: 99999;
+    position: absolute;
+}
+
+.ui-page-theme-a .ui-btn:focus, html .ui-bar-a .ui-btn:focus, html .ui-body-a .ui-btn:focus, html body .ui-group-theme-a .ui-btn:focus, html head + body .ui-btn.ui-btn-a:focus, .ui-page-theme-a .ui-focus, html .ui-bar-a .ui-focus, html .ui-body-a .ui-focus, html body .ui-group-theme-a .ui-focus, html head + body .ui-btn-a.ui-focus, html head + body .ui-body-a.ui-focus{
+    box-shadow: none;
+}

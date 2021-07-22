@@ -1,5 +1,7 @@
-const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');  
-    console.log($('.nota').length)
+       
+    /* si no hay tarea creada, pone el parrafo */ 
+    const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');  
+
 
     if($('.nota').length == 0){
                 $('.notas').append(no_tareas);
@@ -7,6 +9,8 @@ const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');
                 $('#no_tareas').remove();
             }
      
+
+    /*hago click en eliminar*/
     $('.notas').on("click", '.nota .delete', function () {
             var eliminar = confirm("¿Desea eliminar esta nota?");
 
@@ -20,17 +24,35 @@ const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');
             }
         })
 
+    /* hago click en eliminar todos */
+
+    $('#home').on('click', '#borrar_todo', function(){
+        var eliminar = confirm("¿Desea eliminar todas las notas?");
+
+        if(eliminar){
+            $('.nota').remove();
+            guardarNotas();
+        }
+
+        if($('.nota').length == 0){
+            $('.notas').append(no_tareas);
+        }
+    })
+
+      
 
 
-    $('form').on('submit', function(){
+    
+       
+    /* se añade la tarea */
+
+    $('#añadir form').on('submit', function(){
         
         const contenido = $('#entrada').val();
-        const done = $('<button class="done"> <span class="icon-check-circle"></span> </button>');
-        const eliminar = $('<button class="delete"> <span class="icon-trash"></span> </button>');
+        const done = $('<button class="done"> <span class="icon-check-solid"></span> </button>');
+        const eliminar = $('<button class="delete"> <span class="icon-times-solid"></span> </button>');
         const info = $('<p class="info">Última vez: </p>');
-        var id_random = Math.floor(Math.random() * 5) + Date.now();
         const nueva_nota = $('<div></div>');
-        nueva_nota.attr('data-id',id_random)
         const nombre_nota = $('<h3></h3>').prepend(contenido);
         
         
@@ -53,19 +75,22 @@ const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');
         return false;
     })
 
-
+      /*hago click en done*/
       $(".notas").on("click", ".nota .done", function(){
             const date = new Date();
-            const hora = date.getHours() + ':' + date.getMinutes();
-            const dia = date.getDate() + '/' + (date.getMonth() + 1);
+            const hora = date.getHours().toString().length < 2 ? "0" + date.getHours() : date.getHours();
+            const minutos = date.getMinutes().toString().length < 2 ? "0" + date.getMinutes() : date.getMinutes();
+            const dia = date.getDate();
+            const mes = date.getMonth() + 1;
+            console.log(dia)
 
              if( $(this).attr("data-click") != "on"  ) {
-               $(this).next().html('Última vez: ' + " " + '<span id="hora">' + hora + " - " + dia + '</span>');
+               $(this).next().html('Última vez: ' + " " + '<span id="hora">' + hora + ":" + minutos + " - " + dia + "/" + mes + '</span>');
                $(this).attr("data-click","on");  
                guardarNotas();
                 
             }else{
-                $(this).next().html(' Última vez: ' + " " + '<span id="hora">' + hora + " - " + dia + '</span> ');
+                $(this).next().html('Última vez: ' + " " + '<span id="hora">' + hora + ":" + minutos + " - " + dia + "/" + mes + '</span>');
                 $('#no_tareas').remove();
                 $(this).removeAttr('data-click');
                 guardarNotas();
@@ -93,20 +118,61 @@ const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');
         }
 
 
+    $('#login form').on('submit',function(){
+        var nombre = $('#form_login #entrada_login').val();
+
+        
+        const bienvenido = $('<p>Hola, ' + nombre + '. </p>')
+        $('#container').prepend(bienvenido);
+
+        localStorage.setItem('user',nombre);
+
+    
+        $.mobile.navigate("#home");
+        return false;
+        
+        
+    })
+
+
     $(document).on('ready', function () {
-            var recuperado_json = localStorage.getItem('notas');
 
-            if (recuperado_json != null &&
-                recuperado_json != undefined &&
-                recuperado_json != '') {
-                var recuperado_array = JSON.parse(recuperado_json);
-                $.each(recuperado_array, function (indice, valor) {
-                    var nota = $('<div></div>');
-                    nota.attr('class', 'nota').append(valor);
 
-                    $('.notas').append(nota);
-                })
+            if(localStorage.getItem('user')){
+                $.mobile.navigate("#home");
+                const nombre = localStorage.getItem('user');
+                const bienvenido = $('<p>Hola, ' + nombre + '. </p>')
+                $('#container').prepend(bienvenido);
+                //console.log('hay user');
+                
+            }else{
+                $.mobile.navigate("#login");
+                //console.log('no hay user');
+               
             }
+
+        var recuperado_json = localStorage.getItem('notas');
+
+
+        if(recuperado_json != null &&
+           recuperado_json != undefined &&
+           recuperado_json != "") {
+                 var recuperado_array = JSON.parse(recuperado_json);
+                 $.each(recuperado_array, function (indice, valor) {
+                 var nota = $('<div></div>');
+                 nota.attr('class', 'nota').append(valor);
+                 $('.notas').append(nota);
+                 
+            })
+        
+        }
+        
+           
+            
+
+            
+
+            
 
             if($('.nota').length == 0){
                 $('.notas').append(no_tareas);
@@ -132,4 +198,6 @@ const no_tareas = $('<p id="no_tareas"> No hay tareas agregadas. </p>');
                 $('.añadir').text('Añadir tarea')
             }
     })
+
+
 
